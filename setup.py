@@ -11,14 +11,14 @@ from setuptools import setup, Extension, find_namespace_packages
 # __init__.py, which would import the cython-compiled code. But that has
 # not been compiled yet so it would fail. So import only _version.py
 filename = join(
-    dirname(__file__), 'kivy_garden', 'cython_flower', '_version.py')
+    dirname(__file__), 'kivy_garden', 'propertyx', '_version.py')
 # change this                             ^^^^^^^^
 locals = {}
 with open(filename, "rb") as fh:
     exec(compile(fh.read(), filename, 'exec'), globals(), locals)
 __version__ = locals['__version__']
 
-URL = 'https://github.com/kivy-garden/cython_flower'  # <-- change this
+URL = 'https://github.com/kivy-garden/propertyx'  # <-- change this
 
 
 platform = sys.platform
@@ -106,7 +106,7 @@ if can_use_cython:
 else:
     mod_suffix = '.c'
 
-mods = ['cython_flower/_compute']  # <-- change this
+mods = ['propertyx/_compute']  # <-- change this
 
 ext_modules = [Extension(
     'kivy_garden.' + src_file.replace('/', '.'),
@@ -125,7 +125,7 @@ if declare_cython:
     setup_requires.append('cython')
 
 setup(
-    name='kivy_garden.cython_flower',  # <-- change this
+    name='kivy_garden.propertyx',  # <-- change this
     version=__version__,
     description='A kivy garden cython flower demo.',
     long_description=long_description,
